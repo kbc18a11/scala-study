@@ -11,7 +11,7 @@ class Adder {
 
 class Point3D(val x: Int, val y: Int, val z: Int) {}
 
-class Person(name: String, age: Int, private[this] val weight: Int)
+class Person(name: String, age: Int, private val weight: Int)
 
 object Person {
   def printWeight(): Unit = {
@@ -30,6 +30,15 @@ object HelloWorld {
   }
 
   def main(args: Array[String]): Unit = {
-    Person.printWeight()
+    val add = new Function2[Int, Int, Int] {
+      def apply(x: Int, y: Int): Int = x + y
+    }
+// add: AnyRef with (Int, Int) => Int = <function2>
+
+    add.apply(100, 200)
+// res0: Int = 300
+
+    add(100, 200)
+// res1: Int = 300
   }
 }
