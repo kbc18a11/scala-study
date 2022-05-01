@@ -11,6 +11,15 @@ class Adder {
 
 class Point3D(val x: Int, val y: Int, val z: Int) {}
 
+class Person(name: String, age: Int, private[this] val weight: Int)
+
+object Person {
+  def printWeight(): Unit = {
+    val taro = new Person("Taro", 20, 70)
+    println(taro.weight)
+  }
+}
+
 object HelloWorld {
   def loopFrom0To9(): Unit = {
     var i = 0
@@ -21,9 +30,6 @@ object HelloWorld {
   }
 
   def main(args: Array[String]): Unit = {
-    val p = new Point3D(10, 20, 30)
-    println(p.x) // 10
-    println(p.y) // 20
-    println(p.z) // 30
+    Person.printWeight()
   }
 }
